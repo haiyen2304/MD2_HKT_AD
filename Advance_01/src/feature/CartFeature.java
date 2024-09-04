@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 public class CartFeature {
     public static CartService cartService = new CartService();
+
+
     public static void addProductToCart(Scanner sc){
         System.out.println("Enter product ID you want to add to cart : ");
         String productIDAddToCart = sc.nextLine();
@@ -47,8 +49,6 @@ public class CartFeature {
                     break;
                 }
             }
-
-
         }
         if(!checkProductInCart){
             System.out.println("Product not added to the cart!!! ");
@@ -77,10 +77,20 @@ public class CartFeature {
         boolean checkProductToCart=false;
         for(CartItem cartItem:cartService.getAll()){
             if(cartItem.getCartItemId()==cartID){
-                int quantityInCart= Share.inputNumber(sc,"Enter quantity you want to add","Enter number please!!");
-                cartItem.setQuantity(quantityInCart);
-                System.out.println("Done updating quantity of cart item");
-                checkProductToCart=true;
+                int quantityUpdateInCart = Share.inputNumber(sc,"Enter quantity you want to add","Enter number please!!");
+                if(quantityUpdateInCart < (cartItem.getProduct().getStock() + cartItem.getQuantity())){
+                    for(Product p : ProductService.products){
+                        if(p.getProductId().equals(cartItem.getProduct().getProductId())){
+                            p.setStock(cartItem.getProduct().getStock() + cartItem.getQuantity() - quantityUpdateInCart);
+                        }
+                    }
+                    cartItem.setQuantity(quantityUpdateInCart);
+                    System.out.println("Done updating quantity of cart item");
+                    checkProductToCart=true;
+                    break;
+                }else {
+                    System.out.println("Out of Stock, please try again");
+                }
                 break;
             }
         }
