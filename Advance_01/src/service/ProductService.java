@@ -7,12 +7,12 @@ import java.util.List;
 
 public class ProductService implements IGenericService<Product,String> {
     public static ArrayList<Product> products = new ArrayList<Product>();
-static {
-    products.add(new Product("P0001","Tao",20,"aaaaaaaa",12,CategoryService.catalogies.getFirst(),true));
-    products.add(new Product("P0022","TaoTau",28,"bbbbb",12,CategoryService.catalogies.getFirst(),true));
-    products.add(new Product("P0044","TaoMeo",10,"ccccc",12,CategoryService.catalogies.getFirst(),true));
-
-}
+//static {
+//    products.add(new Product("P0001","Tao",20,"aaaaaaaa",12,CategoryService.catalogies.getFirst(),true));
+//    products.add(new Product("P0022","TaoTau",28,"bbbbb",12,CategoryService.catalogies.getFirst(),true));
+//    products.add(new Product("P0044","TaoMeo",10,"ccccc",12,CategoryService.catalogies.getFirst(),true));
+//
+//}
 
 
 

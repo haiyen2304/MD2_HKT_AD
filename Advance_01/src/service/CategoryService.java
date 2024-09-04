@@ -8,11 +8,11 @@ import java.util.List;
 public class CategoryService implements IGenericService<Category,Integer>{
     public static List<Category> catalogies=new ArrayList<Category>();
 
-static {
-    catalogies.add(new Category(1,"Hoa qua ","Re"));
-    catalogies.add(new Category(2,"Do uong","Ngon"));
-    catalogies.add(new Category(3,"Banh my","Bo"));
-}
+//static {
+//    catalogies.add(new Category(1,"Hoa qua ","Re"));
+//    catalogies.add(new Category(2,"Do uong","Ngon"));
+//    catalogies.add(new Category(3,"Banh my","Bo"));
+//}
 
     @Override
     public List<Category> getAll() {
