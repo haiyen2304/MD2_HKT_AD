@@ -73,10 +73,11 @@ public class CartFeature {
             return;
         }
         int cartID= Share.inputNumber(sc,"Enter cart id: ","Enter a number, please try again");
-        int quantityInCart= Share.inputNumber(sc,"Enter quantity you want to add","Enter number please!!");
+
         boolean checkProductToCart=false;
         for(CartItem cartItem:cartService.getAll()){
             if(cartItem.getCartItemId()==cartID){
+                int quantityInCart= Share.inputNumber(sc,"Enter quantity you want to add","Enter number please!!");
                 cartItem.setQuantity(quantityInCart);
                 System.out.println("Done updating quantity of cart item");
                 checkProductToCart=true;
